@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
+//import { ConfigType } from '@nestjs/config';
+
 import { CreateFeedbackDto } from '../dto/create-feedback.dto';
 import { UpdateFeedbackDto } from '../dto/update-feedback.dto';
-
+//import config from 'src/config';
 @Injectable()
 export class FeedbackService {
   create(createFeedbackDto: CreateFeedbackDto) {
@@ -12,6 +14,7 @@ export class FeedbackService {
   }
 
   findAll() {
+    //const apiKey = this.configService.apiKey;
     return `This action returns all feedback`;
   }
 
