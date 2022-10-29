@@ -8,10 +8,13 @@ import {
   Delete,
   ParseIntPipe,
 } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+
 import { FeedbackService } from '../services/feedback.service';
 import { CreateFeedbackDto } from '../dto/create-feedback.dto';
 import { UpdateFeedbackDto } from '../dto/update-feedback.dto';
 
+@ApiTags('Feedbacks')
 @Controller('feedback')
 export class FeedbackController {
   constructor(private readonly feedbackService: FeedbackService) {}
@@ -22,6 +25,7 @@ export class FeedbackController {
   }
 
   @Get()
+  @ApiOperation({ summary: 'Fetch all feedbacks' })
   findAll() {
     return this.feedbackService.findAll();
   }
