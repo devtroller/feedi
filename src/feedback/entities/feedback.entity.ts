@@ -1,1 +1,4 @@
-export class Feedback {}
+export class Feedback {
+  title: string;
+  description: string;
+}
