@@ -14,6 +14,8 @@ import config from 'src/config';
           configService.postgres;
         return {
           type: 'postgres',
+          synchronize: true,
+          autoLoadEntities: true,
           host,
           port,
           username,
