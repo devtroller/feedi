@@ -4,7 +4,6 @@ import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { FeedbackModule } from './feedback/feedback.module';
 import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
 import { envs } from './envs';
@@ -25,7 +24,6 @@ import config from './config';
         POSTGRES_HOST: Joi.string().required(),
       }),
     }),
-    FeedbackModule,
     UsersModule,
     DatabaseModule,
   ],
