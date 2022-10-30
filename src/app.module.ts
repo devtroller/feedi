@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { FeedbackModule } from './feedback/feedback.module';
-import { UsersModule } from './users/users.module';
-import { DatabaseModule } from './database/database.module';
+import { UsersModule } from './modules/users/users.module';
 import { envs } from './envs';
 import config from './config';
+import { typeOrmAsyncConfig } from './config/typeorm.config';
 
 @Module({
   imports: [
@@ -25,9 +25,8 @@ import config from './config';
         POSTGRES_HOST: Joi.string().required(),
       }),
     }),
-    FeedbackModule,
+    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     UsersModule,
-    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
