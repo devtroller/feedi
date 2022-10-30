@@ -3,7 +3,8 @@ import {
   TypeOrmModuleAsyncOptions,
   TypeOrmModuleOptions,
 } from '@nestjs/typeorm';
-import config from 'src/config';
+
+import config from '../config';
 
 export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
   inject: [config.KEY],
