@@ -24,10 +24,10 @@ export class FeedbackController {
     return this.feedbackService.create(createFeedbackDto);
   }
 
-  @Get('tasks')
-  getTasks() {
-    return this.feedbackService.getTasks();
-  }
+  // @Get('tasks')
+  // getTasks() {
+  //   return this.feedbackService.getTasks();
+  // }
 
   @Get()
   @ApiOperation({ summary: 'Fetch all feedbacks' })
