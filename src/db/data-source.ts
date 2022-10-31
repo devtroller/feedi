@@ -1,4 +1,4 @@
-import { User } from 'src/users/entities/user.entity';
+// import { User } from 'src/users/entities/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -8,8 +8,8 @@ export const dataSourceOptions: DataSourceOptions = {
   username: 'root',
   password: '123456',
   database: 'blooming',
-  // entities: ['dist/**/*.entity.ts'],
-  entities: [User],
+  entities: ['dist/**/*.entity.js'],
+  // entities: [User],
   migrations: ['dist/db/migrations/*.js'],
 };
 

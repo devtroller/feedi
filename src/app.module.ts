@@ -8,7 +8,7 @@ import { envs } from './envs';
 import config from './config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
