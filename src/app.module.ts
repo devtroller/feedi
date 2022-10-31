@@ -1,17 +1,18 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { FeedbackModule } from './feedback/feedback.module';
-import { UsersModule } from './users/users.module';
-import { DatabaseModule } from './database/database.module';
+import { dataSourceOptions } from './db/data-source';
 import { envs } from './envs';
 import config from './config';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
+    TypeOrmModule.forRoot(dataSourceOptions),
     ConfigModule.forRoot({
       envFilePath: envs[process.env.NODE_ENV] || '.env',
       load: [config],
@@ -25,9 +26,7 @@ import config from './config';
         POSTGRES_HOST: Joi.string().required(),
       }),
     }),
-    FeedbackModule,
     UsersModule,
-    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
