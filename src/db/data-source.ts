@@ -1,4 +1,3 @@
-// import { User } from 'src/users/entities/user.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
@@ -9,7 +8,6 @@ export const dataSourceOptions: DataSourceOptions = {
   password: '123456',
   database: 'blooming',
   entities: ['dist/**/*.entity.js'],
-  // entities: [User],
   migrations: ['dist/db/migrations/*.js'],
 };
 
