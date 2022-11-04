@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { User } from '../entities/user.entity';
-import { CreateUserDto } from '../dtos/create-user.dto';
-import { UpdateUserDto } from '../dtos/update-user.dto';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -14,10 +14,10 @@ export class UsersService {
     return this.userRepo.find();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const user = await this.userRepo.findOneBy({ id });
     if (!user) {
-      throw new NotFoundException(`Product #${id} not found`);
+      throw new NotFoundException(`User #${id} not found`);
     }
     return user;
   }
@@ -27,13 +27,13 @@ export class UsersService {
     return this.userRepo.save(newUser);
   }
 
-  async update(id: number, changes: UpdateUserDto) {
+  async update(id: string, changes: UpdateUserDto) {
     const user = await this.userRepo.findOneBy({ id });
     this.userRepo.merge(user, changes);
     return this.userRepo.save(user);
   }
 
-  delete(id: number) {
+  delete(id: string) {
     return this.userRepo.delete(id);
   }
 }

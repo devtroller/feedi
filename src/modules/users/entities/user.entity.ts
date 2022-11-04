@@ -1,10 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, Generated } from 'typeorm';
+import { AbstractEntity } from 'src/modules/common/abstract.entity';
+import { Entity, Column } from 'typeorm';
 
 @Entity({ name: 'users' })
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class User extends AbstractEntity {
   @Column({
     type: 'character varying',
     name: 'first_name',
@@ -20,10 +18,6 @@ export class User {
     nullable: false,
   })
   lastName: string;
-
-  @Column({ type: 'uuid', unique: true })
-  @Generated('uuid')
-  uuid: string;
 
   @Column({
     type: 'boolean',

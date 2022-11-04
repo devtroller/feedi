@@ -1,7 +1,7 @@
 import {
   Controller,
   Get,
-  ParseIntPipe,
+  ParseUUIDPipe,
   Param,
   Post,
   Body,
@@ -26,7 +26,7 @@ export class UsersController {
 
   @Get(':id')
   @ApiOperation({ summary: 'List one users' })
-  getOne(@Param('id', ParseIntPipe) id: number) {
+  getOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.userService.findOne(id);
   }
 
@@ -37,14 +37,14 @@ export class UsersController {
 
   @Patch(':id')
   update(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseUUIDPipe) id: string,
     @Body() updateUserDto: UpdateUserDto,
   ) {
     return this.userService.update(id, updateUserDto);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: number) {
+  remove(@Param('id', ParseUUIDPipe) id: string) {
     return this.userService.delete(id);
   }
 }
