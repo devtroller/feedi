@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { dataSourceOptions } from './db/data-source';
 import { envs } from './envs';
 import config from './config';
