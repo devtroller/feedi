@@ -7,7 +7,8 @@ import { envs } from './envs';
 import config from './config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './tenanted/users/users.module';
+import { UsersModule } from './modules/tenanted/users/users.module';
+import { DatabaseModule } from './src/modules/database/database.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { UsersModule } from './tenanted/users/users.module';
       }),
     }),
     UsersModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
