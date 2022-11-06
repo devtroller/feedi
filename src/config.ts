@@ -6,9 +6,10 @@ export default registerAs('config', () => {
       database: process.env.POSTGRES_DB,
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
-      port: parseInt(process.env.POSTGRES_PORT, 10),
+      port: parseInt(process.env.POSTGRES_PORT, 10) || 5432,
       host: process.env.POSTGRES_HOST,
     },
+    env: process.env.NODE_ENV,
     apiKey: process.env.API_KEY,
   };
 });
