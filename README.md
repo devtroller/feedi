@@ -1,6 +1,6 @@
 ## Description
 
-[Nest](https://github.com/nestjs/nest) Application made with Nestjs to manage feedback and administrative processes
+Application made with Nestjs to manage feedback and administrative processes
 
 ## Installation
 
