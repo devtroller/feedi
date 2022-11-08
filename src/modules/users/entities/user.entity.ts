@@ -20,6 +20,15 @@ export class User extends AbstractEntity {
   lastName: string;
 
   @Column({
+    type: 'character varying',
+    name: 'test',
+    length: 50,
+    nullable: false,
+    default: 'test',
+  })
+  test: string;
+
+  @Column({
     type: 'boolean',
     name: 'is_active',
     default: false,
