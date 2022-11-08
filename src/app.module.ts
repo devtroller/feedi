@@ -5,7 +5,7 @@ import { envs } from './environments';
 import config from './config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './modules/tenanted/users/users.module';
+import { UsersModule } from './modules/users/users.module';
 import { DatabaseModule } from './modules/database/database.module';
 
 @Module({
