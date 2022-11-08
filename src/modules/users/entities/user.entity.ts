@@ -13,15 +13,6 @@ export class User extends AbstractEntity {
 
   @Column({
     type: 'character varying',
-    name: 'testeane',
-    length: 50,
-    nullable: false,
-    default: 'hello',
-  })
-  testeane: string;
-
-  @Column({
-    type: 'character varying',
     name: 'last_name',
     length: 50,
     nullable: false,
